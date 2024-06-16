@@ -4,5 +4,5 @@ services:
     image: akatgelar/nusantaradigital-landing:latest
     container_name: "nusantaradigital-landing" 
     ports:
-      - "2001:80"
+      - "2020:80"
     restart: always
