@@ -42,7 +42,7 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
           script: | 
             cd /home/app/nusantaradigital-landing/
-            docker login ghcr.io -u ${{ secrets.PACKAGE_USERNAME }} -p ${{ secrets.PACKAGE_TOKEN }}
+            echo "${{ secrets.PACKAGE_TOKEN }}" | docker login ghcr.io -username ${{ secrets.PACKAGE_USERNAME }} --password-stdin
             sudo docker compose stop
             sudo docker compose rm -f
             sudo docker compose pull 
