@@ -15,13 +15,14 @@ jobs:
       - name: Login to Dockerhub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: https://ghcr.io
+          username: ${{ secrets.PACKAGE_USERNAME }}
+          password: ${{ secrets.PACKAGE_TOKEN }}
       
       - name: Build and push Docker image
         run: |
-          docker build -t akatgelar/nusantaradigital-landing:latest -f .docker/Dockerfile .
-          docker push akatgelar/nusantaradigital-landing:latest
+          docker build -t ghcr.io/akatgelar/nusantaradigital-landing:latest -f .docker/Dockerfile .
+          docker push ghcr.io/akatgelar/nusantaradigital-landing:latest
       
       - name: Copy docker-compose file to VPS
         uses: appleboy/scp-action@v0.1.7

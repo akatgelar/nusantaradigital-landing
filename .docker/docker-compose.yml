@@ -1,7 +1,7 @@
 services:
   web:
     # build: . 
-    image: akatgelar/nusantaradigital-landing:latest
+    image: ghcr.io/akatgelar/nusantaradigital-landing:latest
     container_name: "nusantaradigital-landing" 
     ports:
       - "2010:80"
